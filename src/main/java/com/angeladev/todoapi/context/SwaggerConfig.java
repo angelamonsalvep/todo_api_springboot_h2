@@ -1,4 +1,4 @@
-package com.angeladev.todoapi;
+package com.angeladev.todoapi.context;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -3,10 +3,9 @@ package com.angeladev.todoapi.controller;
 import com.angeladev.todoapi.persistence.entity.Task;
 import com.angeladev.todoapi.service.TaskService;
 import com.angeladev.todoapi.service.dto.TaskInDTO;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/tasks")
@@ -21,5 +20,10 @@ public class TaskController {
     @PostMapping
     public Task createTask(@RequestBody TaskInDTO taskInDTO){
         return this.taskService.createTask(taskInDTO);
+    }
+
+    @GetMapping
+    public List<Task> findAll(){
+        return taskService.findAll();
     }
 }

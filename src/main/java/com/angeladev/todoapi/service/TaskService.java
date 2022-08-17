@@ -2,6 +2,7 @@ package com.angeladev.todoapi.service;
 
 import com.angeladev.todoapi.mapper.TaskInDTOToTask;
 import com.angeladev.todoapi.persistence.entity.Task;
+import com.angeladev.todoapi.persistence.entity.TaskStatus;
 import com.angeladev.todoapi.persistence.repository.TaskRepository;
 import com.angeladev.todoapi.service.dto.TaskInDTO;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,9 @@ public class TaskService {
 
     public List<Task> findAll(){
         return this.repository.findAll();
+    }
+
+    public List<Task> findAllByTaskStatus(TaskStatus status){
+        return this.repository.findAllByTaskStatus(status);
     }
 }

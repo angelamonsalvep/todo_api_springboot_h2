@@ -1,6 +1,7 @@
 package com.angeladev.todoapi.controller;
 
 import com.angeladev.todoapi.persistence.entity.Task;
+import com.angeladev.todoapi.persistence.entity.TaskStatus;
 import com.angeladev.todoapi.service.TaskService;
 import com.angeladev.todoapi.service.dto.TaskInDTO;
 import org.springframework.web.bind.annotation.*;
@@ -25,5 +26,10 @@ public class TaskController {
     @GetMapping
     public List<Task> findAll(){
         return taskService.findAll();
+    }
+
+    @GetMapping("/status/{status}")
+    public List<Task> findAllByStatus(@PathVariable("status") TaskStatus status){
+        return this.taskService.findAllByTaskStatus(status);
     }
 }
